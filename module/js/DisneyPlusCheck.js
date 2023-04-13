@@ -222,6 +222,7 @@ async function test() {
       break;
   }
 
+  $done(panel);
 
   return;
 })();
