@@ -1,6 +1,16 @@
-const AreaAvailableID = 80018499;
-const SelfMadeAvailableID = 80197526;
-const NonSelfMadeAvailableID = 70143836;
+const AUTHORIZATION = 'Bearer ZGlzbmV5JmJyb3dzZXImMS4wLjA.Cu56AgSfBTDag5NiRA81oLHkDZfu5L3CKadnefEAY84'
+const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'
+
+// 即将登陆
+const STATUS_COMING = 2
+// 支持解锁
+const STATUS_AVAILABLE = 1
+// 不支持解锁
+const STATUS_NOT_AVAILABLE = 0
+// 检测超时
+const STATUS_TIMEOUT = -1
+// 检测异常
+const STATUS_ERROR = -2
 
 function statusName(status) {
   return status == 2
@@ -153,11 +163,11 @@ function timeout(delay = 5000) {
 
 async function test() {
   try {
-    let { region, cnbl } = await Promise.race([testHomePage(), timeout(3000)]);
+    let { region, cnbl } = await Promise.race([testHomePage(), timeout(1000)]);
 
     let { countryCode, inSupportedLocation, accessToken } = await Promise.race([
       getLocationInfo(),
-      timeout(3000),
+      timeout(1000),
     ]);
 
     region = countryCode ?? region;
@@ -168,7 +178,7 @@ async function test() {
 
     let support = await Promise.race([
       testPublicGraphqlAPI(accessToken),
-      timeout(3000),
+      timeout(1000),
     ]);
     if (!support) {
       return { status: STATUS_NOT_AVAILABLE };
