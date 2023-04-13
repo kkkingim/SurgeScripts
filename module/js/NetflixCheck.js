@@ -1,5 +1,6 @@
 const AreaAvailableID = 80018499;
 const SelfMadeAvailableID = 80197526;
+const NonSelfMadeAvailableID = 70143836;
 
 function test(filmId) {
   return new Promise((resolve, reject) => {
@@ -49,7 +50,7 @@ function test(filmId) {
     "icon-color": "#77428D",
     content: "測試失敗，請檢查網路狀態",
   };
-  await test(AreaAvailableID)
+  await test(NonSelfMadeAvailableID)
     .then((code) => {
       if (code === "Not Found") {
         return test(SelfMadeAvailableID);
