@@ -210,12 +210,12 @@ async function test() {
   let { region, status } = await test();
 
   switch (status) {
-    case 2:
+    case 1:
       panel["content"] = `❀ 完整解锁：${region}`;
       panel["icon"] = "checkmark.shield";
       panel["icon-color"] = "#1B813E";
       break;
-    case 1:
+    case 2:
       panel["content"] = `❀ 即将上线: ${region}`;
       panel["icon"] = "exclamationmark.shield";
       panel["icon-color"] = "#EFBB24";
