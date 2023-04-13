@@ -223,6 +223,4 @@ async function test() {
   }
 
   $done(panel);
-
-  return;
 })();
