@@ -4,6 +4,8 @@
 
 [Panel]
 NetflixChecker = script-name=NetflixCheck, update-interval=600 
+DisneyPlusChecker = script-name=DisneyPlusCheck, update-interval=600 
 
 [Script]
 NetflixCheck = type=generic, script-path=https://raw.githubusercontent.com/kkkingim/SurgeScripts/master/module/js/NetflixCheck.js, timeout=3600
+DisneyPlusCheck = type=generic, script-path=https://raw.githubusercontent.com/kkkingim/SurgeScripts/master/module/js/DisneyPlusCheck.js, timeout=3600
