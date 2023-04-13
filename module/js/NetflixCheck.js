@@ -45,46 +45,46 @@ function test(filmId) {
 
 (async () => {
   let result = {
-    title: "Netflix 影劇版權 IP 鎖測試",
+    title: "Netflix 解锁测试",
     icon: "exclamationmark.arrow.triangle.2.circlepath",
     "icon-color": "#77428D",
-    content: "測試失敗，請檢查網路狀態",
+    content: "❀ 网络连接失败！",
   };
   await test(NonSelfMadeAvailableID)
     .then((code) => {
       if (code === "Not Found") {
         return test(SelfMadeAvailableID);
       }
-      result["Title"] = "Netflix 影劇版權 IP 鎖測試";
+      result["Title"] = "Netflix 解锁测试";
       result["icon"] = "checkmark.shield";
       result["icon-color"] = "#1B813E";
       //result['icon'] = params.icon1
       //result['icon-color'] = params.color1
       result["content"] =
-        "目前 IP 可完整收看 Netflix 影劇\n解鎖國家：" + code.toUpperCase();
+        "❀ 完整解锁：" + code.toUpperCase();
       return Promise.reject("BreakSignal");
     })
     .then((code) => {
       if (code === "Not Found") {
         return Promise.reject("Not Available");
       }
-      result["Title"] = "Netflix 影劇版權 IP 鎖測試";
+      result["Title"] = "Netflix 解锁测试";
       result["icon"] = "exclamationmark.shield";
       result["icon-color"] = "#EFBB24";
       //result['icon'] = params.icon2
       //result['icon-color'] = params.color2
       result["content"] =
-        "目前 IP 僅支援收看 Netflix 自製劇\n解鎖國家：" + code.toUpperCase();
+      "❀ 仅自制剧：" + code.toUpperCase();
       return Promise.reject("BreakSignal");
     })
     .catch((error) => {
       if (error === "Not Available") {
-        result["Title"] = "Netflix 影劇版權 IP 鎖測試";
+        result["Title"] = "Netflix 解锁测试";
         result["icon"] = "xmark.shield";
         result["icon-color"] = "#CB1B45";
         //result['icon'] = params.icon3
         //result['icon-color'] = params.color3
-        result["content"] = "Netflix 不為此 IP 提供服務";
+        result["content"] = "❀ 不提供服务";
         return;
       }
     })
